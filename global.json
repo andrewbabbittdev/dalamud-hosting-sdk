@@ -2,5 +2,9 @@
   "sdk": {
     "version": "10.0.101",
     "rollForward": "latestFeature"
+  },
+  "msbuild-sdks": {
+    "Microsoft.Build.NoTargets": "3.7.134",
+    "Dalamud.NET.Sdk": "14.0.0"
   }
 }
