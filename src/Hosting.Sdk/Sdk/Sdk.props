@@ -1,9 +1,5 @@
 <Project>
 
-  <PropertyGroup>
-    <Use_DalamudPackager>true</Use_DalamudPackager>
-  </PropertyGroup>
-
   <Import Project="$(MSBuildThisFileDirectory)\PackageVersions.props" />
 
   <Import Sdk="Dalamud.NET.Sdk" Project="Sdk.props" Version="$(_DalamudSdkVersion)" />
