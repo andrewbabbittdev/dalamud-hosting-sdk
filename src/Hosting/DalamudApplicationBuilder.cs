@@ -71,7 +71,8 @@ public sealed class DalamudApplicationBuilder : IHostApplicationBuilder
     /// Registers all windows in the assembly containing the specified type.
     /// </summary>
     /// <typeparam name="TAssembly">A type from the assembly whose Window-derived classes will be registered.</typeparam>
-    public void AddWindows<TAssembly>()
+    /// <returns>The current <see cref="DalamudApplicationBuilder"/> instance for chaining.</returns>
+    public DalamudApplicationBuilder AddWindows<TAssembly>()
     {
         var windows = typeof(TAssembly).Assembly
             .GetTypes()
@@ -82,13 +83,16 @@ public sealed class DalamudApplicationBuilder : IHostApplicationBuilder
             _hostApplicationBuilder.Services.AddSingleton(window);
             _hostApplicationBuilder.Services.AddSingleton(typeof(Window), services => services.GetRequiredService(window));
         }
+
+        return this;
     }
 
     /// <summary>
     /// Registers all commands in the assembly containing the specified type.
     /// </summary>
     /// <typeparam name="TAssembly">A type from the assembly whose Command-derived classes will be registered.</typeparam>
-    public void AddCommands<TAssembly>()
+    /// <returns>The current <see cref="DalamudApplicationBuilder"/> instance for chaining.</returns>
+    public DalamudApplicationBuilder AddCommands<TAssembly>()
     {
         var commands = typeof(TAssembly).Assembly
             .GetTypes()
@@ -99,6 +103,8 @@ public sealed class DalamudApplicationBuilder : IHostApplicationBuilder
             _hostApplicationBuilder.Services.AddSingleton(command);
             _hostApplicationBuilder.Services.AddSingleton(typeof(Command), services => services.GetRequiredService(command));
         }
+
+        return this;
     }
 
     /// <summary>
