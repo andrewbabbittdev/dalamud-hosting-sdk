@@ -1,0 +1,5 @@
+<Project>
+
+  <Import Sdk="Dalamud.NET.Sdk" Project="Sdk.targets" Version="$(_DalamudSdkVersion)" />
+
+</Project>

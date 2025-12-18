@@ -1,0 +1,10 @@
+<Project>
+
+  <Target Name="WriteDalamudHostingVersion" BeforeTargets="Pack">
+    <WriteLinesToFile
+      File="$(MSBuildProjectDirectory)\Sdk\PackageVersions.props"
+      Lines="&lt;Project&gt;&#xA;&#xA;  &lt;PropertyGroup&gt;&#xA;    &lt;_DalamudSdkVersion&gt;$(DalamudSdkVersion)&lt;/_DalamudSdkVersion&gt;&#xA;    &lt;_DalamudHostingVersion&gt;$(Version)&lt;/_DalamudHostingVersion&gt;&#xA;  &lt;/PropertyGroup&gt;&#xA;&#xA;&lt;/Project&gt;&#xA;"
+      Overwrite="true" />
+  </Target>
+
+</Project>

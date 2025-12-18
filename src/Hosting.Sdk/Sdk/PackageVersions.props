@@ -1,0 +1,8 @@
+<Project>
+
+  <PropertyGroup>
+    <_DalamudSdkVersion>14.0.0</_DalamudSdkVersion>
+    <_DalamudHostingVersion>1.0.0</_DalamudHostingVersion>
+  </PropertyGroup>
+
+</Project>

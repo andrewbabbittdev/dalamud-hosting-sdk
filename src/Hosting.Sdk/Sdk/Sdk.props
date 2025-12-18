@@ -1,0 +1,31 @@
+<Project>
+
+  <Import Project="$(MSBuildThisFileDirectory)\PackageVersions.props" />
+
+  <Import Sdk="Dalamud.NET.Sdk" Project="Sdk.props" Version="$(_DalamudSdkVersion)" />
+
+  <ItemGroup Condition="Exists('appsettings.yaml')">
+    <Content Include="appsettings.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.*.yaml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>appsettings.yaml</DependentUpon>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup  Condition="Exists('appsettings.json')">
+    <Content Include="appsettings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="appsettings.*.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <DependentUpon>appsettings.json</DependentUpon>
+    </Content>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dalamud.Hosting" Version="$(_DalamudHostingVersion)" />
+  </ItemGroup>
+
+</Project>
