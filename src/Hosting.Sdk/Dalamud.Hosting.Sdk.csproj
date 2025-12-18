@@ -8,6 +8,7 @@
     <IncludeSymbols>false</IncludeSymbols>
     <IncludeContentInPack>true</IncludeContentInPack>
     <ContentTargetFolders>.</ContentTargetFolders>
+    <SuppressDependenciesWhenPacking>true</SuppressDependenciesWhenPacking>
   </PropertyGroup>
 
   <PropertyGroup>
