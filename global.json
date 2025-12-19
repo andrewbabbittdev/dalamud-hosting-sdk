@@ -5,6 +5,6 @@
   },
   "msbuild-sdks": {
     "Microsoft.Build.NoTargets": "3.7.134",
-    "Dalamud.NET.Sdk": "14.0.0"
+    "Dalamud.NET.Sdk": "14.0.1"
   }
 }
