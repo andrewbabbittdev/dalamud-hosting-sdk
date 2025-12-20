@@ -184,7 +184,6 @@ public sealed class DalamudApplicationBuilder : IHostApplicationBuilder
         builder.Services.AddSingleton(_ => pluginInterface.GetRequiredService<IPartyFinderGui>());
         builder.Services.AddSingleton(_ => pluginInterface.GetRequiredService<IPartyList>());
         builder.Services.AddSingleton(_ => pluginInterface.GetRequiredService<IPlayerState>());
-        builder.Services.AddSingleton(_ => pluginInterface.GetRequiredService<IPluginLinkHandler>());
         builder.Services.AddSingleton(_ => pluginInterface.GetRequiredService<IPluginLog>());
         builder.Services.AddSingleton(_ => pluginInterface.GetRequiredService<IReliableFileStorage>());
         builder.Services.AddSingleton(_ => pluginInterface.GetRequiredService<ISelfTestRegistry>());
