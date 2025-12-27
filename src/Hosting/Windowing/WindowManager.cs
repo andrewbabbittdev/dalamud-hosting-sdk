@@ -42,8 +42,16 @@ public class WindowManager(IServiceProvider serviceProvider, IDalamudPluginInter
         }
 
         pluginInterface.UiBuilder.Draw += _windowSystem.Draw;
-        pluginInterface.UiBuilder.OpenMainUi += ToggleMainUi;
-        pluginInterface.UiBuilder.OpenConfigUi += ToggleConfigUi;
+
+        if (_mainWindow is not null)
+        {
+            pluginInterface.UiBuilder.OpenMainUi += _mainWindow.Toggle;
+        }
+
+        if (_configWindow is not null)
+        {
+            pluginInterface.UiBuilder.OpenConfigUi += _configWindow.Toggle;
+        }
 
         return Task.CompletedTask;
     }
@@ -52,21 +60,19 @@ public class WindowManager(IServiceProvider serviceProvider, IDalamudPluginInter
     public Task StopAsync(CancellationToken cancellationToken)
     {
         pluginInterface.UiBuilder.Draw -= _windowSystem.Draw;
-        pluginInterface.UiBuilder.OpenMainUi -= ToggleMainUi;
-        pluginInterface.UiBuilder.OpenConfigUi -= ToggleConfigUi;
+
+        if (_mainWindow is not null)
+        {
+            pluginInterface.UiBuilder.OpenMainUi -= _mainWindow.Toggle;
+        }
+
+        if (_configWindow is not null)
+        {
+            pluginInterface.UiBuilder.OpenConfigUi -= _configWindow.Toggle;
+        }
 
         _windowSystem.RemoveAllWindows();
 
         return Task.CompletedTask;
-    }
-
-    private void ToggleMainUi()
-    {
-        _mainWindow?.Toggle();
-    }
-
-    private void ToggleConfigUi()
-    {
-        _configWindow?.Toggle();
     }
 }
