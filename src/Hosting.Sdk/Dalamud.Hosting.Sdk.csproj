@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <DalamudSdkVersion>14.0.1</DalamudSdkVersion>
+    <DalamudSdkVersion>15.0.0</DalamudSdkVersion>
   </PropertyGroup>
 
   <ItemGroup>
